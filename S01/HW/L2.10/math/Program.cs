@@ -81,11 +81,31 @@ class Program
         }
         return sin;
     }
+
+    public static void square_root(int x, double pre)
+    {
+        double left=0;
+        double right=x;
+        double mid=0;
+        int iter=0;
+
+        while(right-left > pre){
+            mid=(right+left)/2;
+            if(x>(mid)*(mid)){
+                left=mid;
+            }else{
+                right=mid;
+            }
+            iter++;
+        }
+        Console.WriteLine($"p5:   squar root{x}: {mid:f5}    iterations: {iter}");
+    }
     static void Main(string[] args)
     {
-        Console.WriteLine($"p1: {e(0.001f)}");
-        Console.WriteLine($"p2: {exper(1,0.001)} ____ {exper(2,0.001)}");
-        Console.WriteLine($"p4:  45-> {sino(45,0.001)}  90-> {sino(90,0.00000001)}  0-> {sino(0,0.001)}");
+        Console.WriteLine($"p1: {e(0.001f):f5}");
+        Console.WriteLine($"p2: {exper(1,0.001):f5} ____ {exper(2,0.001):f5}");
+        Console.WriteLine($"p4:  45-> {sino(45,0.001):f5}  90-> {sino(90,0.00000001):f5}  0-> {sino(0,0.001):f5}");
+        square_root(2,0.000001);
 
     }
 }
